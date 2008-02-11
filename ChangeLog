@@ -1,0 +1,8 @@
+2008-02-11 22:39  mgrimes
+
+	* ., Build.PL, INSTALL, MANIFEST, MANIFEST.SKIP, lib, lib/Class,
+	  lib/Class/DBI, lib/Class/DBI/Pageset.pm, samples, t, t/00-new.t,
+	  t/01-pageset.t, t/02-pageset-html.t, t/96-kwalitee.t, t/98-pod.t,
+	  t/99-podcoverage.t: Initial implementation of Class::DBI::Pageset
+	  (heavily taken from Class::DBI::Pager
+
