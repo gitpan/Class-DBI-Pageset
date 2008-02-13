@@ -24,10 +24,11 @@ DESCRIPTION
     search via "Class::DBI" and grouping results into pages and page sets.
 
     This module is very similar to Tatsuhiko Miyagawa's very nice
-    "Class::DBI::Pager" module, but uses "Data::Pageset" to create the
-    pager. "Data::Pageset" provides a more flexible pager, which is better
-    suited to searches that return many pages. This is not necessarily very
-    efficient (see "NOTE" below for more).
+    "Class::DBI::Pager" module, but uses "Data::Pageset" (or any module that
+    inherits from "Data::Pageset", such as "Data::Pageset::HTML") to create
+    the pager. "Data::Pageset" provides a more flexible pager, which is
+    better suited to searches that return many pages. This is not
+    necessarily very efficient (see "NOTE" below for more).
 
 EXAMPLE
       # Controller: (MVC's C)
@@ -63,6 +64,14 @@ EXAMPLE
       [% IF pager.next_set %]
         <a href="display?page=[% pager.next_set %]">...</a>
       [% END %]
+
+    To use one of the modules that inherit from "Data::Pageset" (such as
+    "Data::Pageset::HTML") just include the module name as part of the "use"
+    statement.
+
+        use Class::DBI::Pageset qw(Data::Pageset::HTML);
+        ## Then in your code you can use
+        $pager->html( '<a href="index?page=%s">%a</a>' );
 
 METHODS
     pager()
@@ -101,11 +110,20 @@ NOTE
     searches that return many pages of results, it maybe more prone to
     inefficiencies than "Class::DBI::Pager".
 
+    I had originally wanted to patch "Class::DBI::Pager" to use different
+    pagers, ie, "Data::Page", "Data::Pageset", or "Data::Pageset::HTML", but
+    the constructors for "Data::Page" and "Data::Pageset" are incompatible
+    and jamming them together didn't seem like a good fix.
+
 SEE ALSO
     "Class::DBI", "Data::Pageset"
 
     Or for alternatives: "Class::DBI::Pager", "DBIx::Class",
     "DBIx::Class::ResultSet::Data::Pageset"
+
+BUGS
+    Please report any bugs or suggestions at
+    <http://rt.cpan.org/NoAuth/Bugs.html?Dist=Class-DBI-Pageset>
 
 AUTHOR
     Most of this code was shamelessly taken from the very nice

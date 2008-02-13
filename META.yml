@@ -1,6 +1,6 @@
 ---
 name: Class-DBI-Pageset
-version: 0.10
+version: 0.11
 author:
   - |-
     Most of this code was shamelessly taken from the very nice
@@ -11,13 +11,14 @@ license: perl
 resources:
   license: http://dev.perl.org/licenses/
 requires:
+  Class::DBI: 0.90
   Data::Pageset: 1.04
 recommends:
   Data::Pageset:HTML: 0
 provides:
   Class::DBI::Pageset:
     file: lib/Class/DBI/Pageset.pm
-    version: 0.10
+    version: 0.11
 generated_by: Module::Build version 0.2808
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html

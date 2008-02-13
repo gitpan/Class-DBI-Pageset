@@ -1,3 +1,8 @@
+2008-02-11 23:06  mgrimes
+
+	* ., .releaserc, MANIFEST, lib/Class/DBI/Pageset.pm: Prepping for
+	  release
+
 2008-02-11 22:39  mgrimes
 
 	* ., Build.PL, INSTALL, MANIFEST, MANIFEST.SKIP, lib, lib/Class,
